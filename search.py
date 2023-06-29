@@ -15,9 +15,11 @@ time.sleep(0.5)
 # driver.find_element(By.XPATH,f'//*[@id="rso"]/div[{i}]/div/div/div[1]/div/a/h3').click()
 elements = driver.find_elements(By.PARTIAL_LINK_TEXT,'school')
 time.sleep(0.5)
+
 for element in elements:
     try:
-        print(element)
+        with open("sites.txt", "a") as arquivo:
+            arquivo.write(element.get_attribute("href"))
         element.click()
         time.sleep(1)
         if element:

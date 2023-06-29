@@ -1,10 +1,5 @@
-from teste import livro
 from selenium import webdriver
 
-livro1 = livro("Os Zikas", "Comedia", 204)
-livro1.cadastrar(33)
-livro1.cadastro_livro()
+abrir = webdriver.Chrome()
 
-abrir = webdriver.Firefox()
-
-abrir.get("https://www.selenium.dev/pt-br/documentation/webdriver/getting_started/first_script/")
+abrir.get("https://www.alura.com.br/artigos/linux-compactando-e-descompactando-arquivos-com-o-tar?gclid=Cj0KCQjw1_SkBhDwARIsANbGpFvpNvTd6rmtfA-Ifid3e3X6W-ugKvjSN6KvyCp0bv8_U2zT-5-xnGwaAsDqEALw_wcB")
