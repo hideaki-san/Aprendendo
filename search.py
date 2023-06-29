@@ -13,13 +13,13 @@ time.sleep(0.2)
 m.send_keys(Keys.ENTER)
 time.sleep(0.5)
 # driver.find_element(By.XPATH,f'//*[@id="rso"]/div[{i}]/div/div/div[1]/div/a/h3').click()
-elements = driver.find_elements(By.PARTIAL_LINK_TEXT,'school')
+elements = driver.find_elements(By.PARTIAL_LINK_TEXT,'school_distric')
 time.sleep(0.5)
 
 for element in elements:
     try:
         with open("sites.txt", "a") as arquivo:
-            arquivo.write(element.get_attribute("href"))
+            arquivo.write(element.get_attribute("href") + "\n")
         element.click()
         time.sleep(3)
         if element:
