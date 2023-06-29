@@ -21,7 +21,7 @@ for element in elements:
         with open("sites.txt", "a") as arquivo:
             arquivo.write(element.get_attribute("href"))
         element.click()
-        time.sleep(1)
+        time.sleep(3)
         if element:
             driver.back()
         time.sleep(1)
