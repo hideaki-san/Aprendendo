@@ -12,6 +12,7 @@ time.sleep(0.5)
 distritos = Select(driver.find_element(By.XPATH, '//*[@id="state"]'))
 tela_cidades = driver.find_element(By.PARTIAL_LINK_TEXT,'Browse')
 todas_opcoes = distritos.options
+nome_cidades = []
 
 for distrito in todas_opcoes:
     opcao_atual = distrito.get_attribute('value')
@@ -24,9 +25,14 @@ for distrito in todas_opcoes:
         janela_atual = driver.window_handles
         driver.switch_to.window(janela_atual[1])
         time.sleep(1)
-        nome_cideades = driver.find_elements(By.TAG_NAME, 'li')
+        cideades = driver.find_elements(By.TAG_NAME, 'li')
     
-        for n in nome_cideades:
-            print(n.text)
-        
+        for n in cideades:
+            nome_cidades.append(n.text)
+
         driver.switch_to.window(janela_atual[0])
+        entrada_cidade = driver.find_element(By.ID, 'city')
+
+        for c in nome_cidades:
+            entrada_cidade.clear()
+            entrada_cidade.send_keys(c)
