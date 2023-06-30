@@ -17,7 +17,6 @@ for element in elements:
         print(element.get_attribute('title') + '\n')
         #with open("escolas.txt", "a") as arquivo:
          #   arquivo.write(element.get_attribute('title') + '\n')
-
         time.sleep(3)
     except ex.ElementNotInteractableException:
         print("Elemento não interagivel!")
