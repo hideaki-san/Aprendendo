@@ -14,7 +14,7 @@ time.sleep(0.5)
 distritos = Select(driver.find_element(By.XPATH, '//*[@id="state"]'))
 tela_cidades = driver.find_element(By.PARTIAL_LINK_TEXT,'Browse')
 todas_opcoes = distritos.options
-nome_cidades = []
+driver.find_element(By.XPATH, '//*[@id="institutions"]/table/tbody/tr/td/table/tbody/tr[6]/td[3]/font/input').click()
 
 for distrito in todas_opcoes:
     opcao_atual = distrito.get_attribute('value')
@@ -29,6 +29,7 @@ for distrito in todas_opcoes:
         time.sleep(1)
         cideades = driver.find_elements(By.TAG_NAME, 'li')
         nome_cidades = []
+        nome_escolas = []
     
         for n in cideades:
             nome_cidades.append(n.text)
@@ -45,16 +46,18 @@ for distrito in todas_opcoes:
             time.sleep(0.5)
             resultados = driver.find_element(By.XPATH, '/html/body/div[1]/div[3]/div/div/form/table[1]/tbody/tr[2]/td/table/tbody/tr[2]/td/table/tbody/tr/td[3]/input')
             resultado_atual = resultados.get_attribute('value')
+            print(c)
             if resultado_atual != '0':
                 tipo = driver.find_element(By.XPATH, "/html/body/div[1]/div[3]/div/div/form/div[1]") 
                 escolas = driver.find_element(By.ID, 'hiddenitems_school')
                 nome_escolas = escolas.find_elements(By.TAG_NAME, 'a')
+                print('Escolas Publicas')
                 for n in nome_escolas:
                     print(n.text)
                 
-                #if driver.find_element(By.XPATH, '/html/body/div[1]/div[3]/div/div/form/script[6]'):
-                #    escolas= driver.find_element(By.ID, 'hiddenitems_privschool')
-                #    nome_escolas = escolas.find_elements(By.TAG_NAME, 'a')
-                #    print('Escolas Privadas')
-                #    for n in nome_escolas:
-                #        print(n.text)
+                if len(nome_escolas) < int(resultado_atual):
+                    escolas= driver.find_element(By.ID, 'hiddenitems_privschool')
+                    nome_escolas = escolas.find_elements(By.TAG_NAME, 'a')
+                    print('Escolas Privadas')
+                    for n in nome_escolas:
+                        print(n.text)
