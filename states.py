@@ -1,12 +1,13 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
-from search_gov import driver
 
-class States:
-    def __init__(self, tag_name: str):
+class States_selection:
+    def __init__(self, tag_name: str, driver):
         self.tag_name = tag_name
+        self.driver = driver
 
     def return_select_options(self):
+        driver = self.driver
         select = Select(driver.find_element(By.TAG_NAME, self.tag_name))
         all_options = select.options
         for option in select.options:
