@@ -70,7 +70,7 @@ def set_type_of_school(school_type: str): #School class
             checkbox_private.click()
 
 def set_school_description(csv_file, count): #School class
-    schools_descriptions = driver.find_elements(By.CLASS_NAME,'InstDesc')
+    schools_descriptions = driver.find_elements(By.ID,'hiddenitems_school_privschool')
     spam_writer = csv.writer(csv_file, dialect='excel')
     for description in schools_descriptions:
         if description.get_attribute('align') != 'center':
