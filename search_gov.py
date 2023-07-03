@@ -38,14 +38,6 @@ def set_city_name(city_name: str): #City class
     input_city.send_keys(city_name)
     input_city.send_keys(Keys.ENTER)
 
-# def click_search():
-#     buttons = driver.find_elements(By.TAG_NAME,'input')
-#     for button in buttons:
-#         value = button.get_attribute('type')
-#         if 'submit' in value:
-#             button.click()
-#             break
-
 def set_type_of_school(school_type: str): #School class
     checkbox_public = driver.find_element(By.XPATH,'//*[@id="institutions"]/table/tbody/tr/td/table/tbody/tr[4]/td[3]/font/input')
     is_checked_public = checkbox_public.get_attribute('checked')
@@ -69,16 +61,28 @@ def set_type_of_school(school_type: str): #School class
         if not is_checked_private:
             checkbox_private.click()
 
+def ajust_description_line(description,type_school):
+    description_line = description.text.splitlines()
+    description_line[0] = description_line[0][2:]
+    del description_line[3:]
+    description_line[2] = description_line[2].replace(' ','')
+    description_line[2] = description_line[2][:13]
+    description_line.append(type_school)
+
+    return description_line
+
 def set_school_description(csv_file, count): #School class
-    schools_descriptions = driver.find_elements(By.ID,'hiddenitems_school_privschool')
+    public_schools_descriptions = driver.find_elements(By.ID,'hiddenitems_school')
+    private_schools_descriptions = driver.find_elements(By.ID,'hiddenitems_privschool')
     spam_writer = csv.writer(csv_file, dialect='excel')
-    for description in schools_descriptions:
+    for description in public_schools_descriptions:
         if description.get_attribute('align') != 'center':
-            description_line = description.text.splitlines()
-            count += len(description_line)/3
-            del description_line[3:]
-            description_line[2] = description_line[2].replace(' ','')
-            description_line[2] = description_line[2][:13]
+            description_line = ajust_description_line(description,'Public')
+            spam_writer.writerow(description_line)
+
+    for description in private_schools_descriptions:
+        if description.get_attribute('align') != 'center':
+            description_line = ajust_description_line(description,'Private')
             spam_writer.writerow(description_line)
     return count
 
@@ -97,7 +101,7 @@ with open('US_schools.csv', 'w', newline='') as csv_file:
         driver.close()
         switch_window(0)
         set_type_of_school('public and private')
-        for city in citys[-1:]:
+        for city in citys:
             set_city_name(city)
             i = set_school_description(csv_file,i)
             print(f'Número de escolas: {i}')
