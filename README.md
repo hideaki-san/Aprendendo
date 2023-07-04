@@ -27,7 +27,7 @@
 
 **3.** Webdriver necessário para inicialização do navegar pelo selenium:
 
-    > Link com a documentação dos drivers para os navegadores
+> Link com a documentação dos drivers para os navegadores
     
     <https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location/>
 
