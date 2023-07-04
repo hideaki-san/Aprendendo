@@ -29,7 +29,7 @@
 
 > Link com a documentação dos drivers para os navegadores
     
-    <https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location/>
+    https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location/
 
 **4.** Realizando a execução da aplicação:
 
