@@ -32,5 +32,4 @@
     <https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location/>
 
 **4.** Realizando a execução da aplicação:
-
-    ```python main.py```
+```python main.py```
