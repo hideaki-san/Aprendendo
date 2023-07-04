@@ -22,7 +22,7 @@
 
 **2.** Instalação das bibliotecas pendentes:
 
-    ```pip install -r requirements.txt```
+    pip install -r requirements.txt
 
 **3.** Webdriver necessário para inicialização do navegar pelo selenium:
 
