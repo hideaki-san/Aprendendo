@@ -1,6 +1,6 @@
 # Rodando Aplicação
 
-## A Aplicação irá listar em um arquivo csv os nomes de todas as escolas dos Estados Unidos com o seu endereço, tipo(privada ou pública), telefone e PK.
+## A Aplicação irá listar em um arquivo csv os nomes de todas as escolas dos Estados Unidos com o seu endereço, tipo(privada ou pública) e telefone.
 
 **1.** Versão utilizada do python: 3.9.17
 
