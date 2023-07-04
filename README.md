@@ -33,3 +33,7 @@ https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_l
 **4.** Realizando a execução da aplicação:
 
     python main.py
+
+## Desenvolvedores
+| [<img src="https://avatars.githubusercontent.com/u/103665509?v=4" width=115><br><sub>Vinícius Amâncio </sub>](https://github.com/ViniAman01) |  [<img src="https://avatars.githubusercontent.com/u/104926696?v=4" width=115><br><sub>Lucas Hideaki</sub>](https://github.com/hideaki-san) |  [<img src="https://avatars.githubusercontent.com/u/103621251?v=4" width=115><br><sub>Linda Cristy</sub>](https://github.com/licristy23) |  [<img src="https://avatars.githubusercontent.com/u/56569318?v=4" width=115><br><sub>Karla Karoliny</sub>](https://github.com/karla3l) |
+| :---: | :---: | :---: |  :---: |
